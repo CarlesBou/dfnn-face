@@ -17,7 +17,11 @@ Networks (FNNs) named "**Feature Attribution Computed Exactly (FACE)**" and the 
 use of the explainer over regression and classification tabular problems and in classifation with images.
 
 The original implementation of FACE has now been ported to the PyTorch framework, giving a broader range of use for the researchers. in order to heIt has been implemented in Python and uses the PyTorch framework. We are working in a new version compatible
-with PyTorch, too.
+with PyTorch, too. 
+
+![Alternate text Classification](https://github.com/CarlesBou/dfnn-face/tree/main/src/dfnn_face/images/Visualization_example-Classitication.png)
+
+![Alternate text Regression](https://github.com/CarlesBou/dfnn-face/tree/main/src/dfnn_face/images/Visualization_example-Regression.png)
 
 The [*/source/explainers/face*](src/dfnn-face/explainers/face) folder keeps the source files of PyTorch implemention of FACE.
 

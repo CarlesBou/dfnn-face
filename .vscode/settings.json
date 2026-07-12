@@ -1,9 +1,14 @@
 {
-    "python-envs.pythonProjects": [
-        {
-            "path": ".",
-            "envManager": "ms-python.python:conda",
-            "packageManager": "ms-python.python:conda"
-        }
+"python.analysis.extraPaths": [
+        "./src", 
+        "./src/dfnn_face",
+        "./src/datasets",
+        "./src/models",
+    ],
+    "python.autoComplete.extraPaths": [
+        "./src", 
+        "./src/dfnn_face"
+        "./src/datasets",
+        "./src/models",
     ]
 }
