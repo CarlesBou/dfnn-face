@@ -1,0 +1,74 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dfnn-face"
+dynamic = ["version"]
+description = ''
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Carles", email = "jcarles5@alumno.uned.es" },
+]
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+	"numpy>=2.0.2",
+	"torch>=2.6.0",
+	"pandas>=2.2.3",
+	"matplotlib>=3.10.0",
+	"scipy>=1.15.1",
+	"sympy>=1.13.3",
+	"cvxpy>=1.7.1",
+	"pycddlib>=3.0.2",
+	"spyder-kernels==3.0.0",
+	"PyQt5",
+]
+
+[project.urls]
+Documentation = "https://github.com/Carles/dfnn-face#readme"
+Issues = "https://github.com/Carles/dfnn-face/issues"
+Source = "https://github.com/Carles/dfnn-face"
+
+[tool.hatch.version]
+path = "src/dfnn_face/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/dfnn_face tests}"
+
+[tool.coverage.run]
+source_pkgs = ["dfnn_face", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/dfnn_face/__about__.py",
+]
+
+[tool.coverage.paths]
+dfnn_face = ["src/dfnn_face", "*/dfnn-face/src/dfnn_face"]
+tests = ["tests", "*/dfnn-face/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+[tool.hatch.build.targets.wheel]
+  packages = ["src/dfnn_face"]
