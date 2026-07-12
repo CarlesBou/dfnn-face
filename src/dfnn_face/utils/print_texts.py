@@ -34,3 +34,20 @@ def print_bold(text):
 
     # Fallback for Spyder console, standard terminal, or command prompt
     print(f"\033[1m{text}\033[0m")
+    
+    
+def get_config_structure(hidden_struct, config=None):
+    struct = ''
+    pos = 0 
+    
+    for n_layer, n_per_layer in enumerate(hidden_struct):
+        
+        struct += config[pos:pos + n_per_layer]
+        
+        if n_layer != len(hidden_struct) - 1:
+            struct += '-'
+        
+        pos += n_per_layer 
+            
+    return struct
+

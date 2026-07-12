@@ -16,14 +16,14 @@ from utils.face_torch  import count_configurations
 from utils.set_random  import set_random_seed
 from utils.graph       import ImplicitEquationPlotter
 from utils.gface_torch import get_rules
-from utils.print_texts import print_bold
+from utils.print_texts import print_bold, get_config_structure
 
 '''
 Set model ininitalization variables
 '''
 num_inputs = 2
 num_outputs = 2
-
+normalized_range = ([0.0, 1.0], [0.0, 1.0])
 r_circle = 0.50
    
 # hidden_struct=[4,4]
@@ -126,115 +126,99 @@ Get configurations (activation patterns) for train dataset
 # configs, config_samples, color_count = count_configurations(model, X_train, y_train)
 configs, config_samples, color_count = count_configurations(model, X_test, y_test)
 
+activation_patterns = list(map(lambda x: get_config_structure([4, 4], x), configs.keys()))
+
+print(f'#Activation Patterns: {len(activation_patterns)}\n')
+
+print(f'Activation Patterns = {activation_patterns}\n')
  
 
 '''
 Get rules for specific config (activation pattern)
 '''
-config = '10110011'
-# config = '00100110'
-# config = '00110011'
-# config = '00110110'
-# config = '00110111'
-# config = '10100110'
-# config = '10110110'
-# config = '10110111'
-
-# # config = '1101011110'
-
-config = '11001111'
-config = '11110000'
-# config = '11011100'
-# config = '11110011'
-# config = '01111100'
-
-# config = '01110000'
-
-# config = list(configs.keys())[-1]
-
-normalized_range = ([0.0, 1.0], [0.0, 1.0])
-
-# rule_texts = get_rules(model, X_test, y_test, 
-#                        normalized_range,
-#                        config_samples, config)
-
-# print_bold(rule_texts['rule_antecedents'][0])
-# print(rule_texts['rule_antecedents'][1])
-
-# print_bold(rule_texts['rule_consequent'][0])
-# print(rule_texts['rule_consequent'][1])
-
-# print_bold(rule_texts['activation_region'][0])
-# print(rule_texts['activation_region'][1])
-
-
-
-# '''
-# Plot config (activation pattern)
-# '''
-
-# plotter_options = {
-#     'configs': configs,
-#     'config_samples': config_samples, 
-#     'X': X_test, 
-#     'y': y_test, 
-#     'model': model,
-#     'normalized_range': normalized_range,
-#     'point_size': 1.5,
-#     'light_point_size': 1.5,
-#     'light_point_alpha': 0.5,
-#     # 'class_linewidth': 2,
-#     # 'neuron_linewidth': 1.6,
-#     'class_linewidth': 4,
-#     'neuron_linewidth': 3,
-#     'hidden_struct': hidden_struct,
-#     'arrow_length': 0.5
-# }
-
-# plotter = ImplicitEquationPlotter(**plotter_options)
-
-# plotter.show(config)
-
-
-for config in configs:
+config = '0111-0001'
     
-    print(f'CONFIG = {config}')
-    
-    rule_texts = get_rules(model, X_test, y_test, 
-                           normalized_range,
-                           config_samples, config)
+print_bold(f'Rules for Activation Pattern [{config}]\n')
 
-    print_bold(rule_texts['rule_antecedents'][0])
-    print(rule_texts['rule_antecedents'][1])
 
-    print_bold(rule_texts['rule_consequent'][0])
-    print(rule_texts['rule_consequent'][1])
+rule_texts = get_rules(model, X_test, y_test, 
+                       normalized_range,
+                       config_samples, config)
 
-    print_bold(rule_texts['activation_region'][0])
-    print(rule_texts['activation_region'][1])
+print_bold(rule_texts['rule_antecedents'][0])
+print(rule_texts['rule_antecedents'][1])
+
+print_bold(rule_texts['rule_consequent'][0])
+print(rule_texts['rule_consequent'][1])
+
+print_bold(rule_texts['activation_region'][0])
+print(rule_texts['activation_region'][1])
+
+print() 
+
+plotter_options = {
+    'configs': configs,
+    'config_samples': config_samples, 
+    'X': X_test, 
+    'y': y_test, 
+    'model': model,
+    'normalized_range': normalized_range,
+    'point_size': 1.5,
+    'light_point_size': 1.5,
+    'light_point_alpha': 0.5,
+    # 'class_linewidth': 2,
+    # 'neuron_linewidth': 1.6,
+    'class_linewidth': 3.5,
+    'neuron_linewidth': 3,
+    'hidden_struct': hidden_struct,
+    'arrow_length': 0.4,
+    'arrow_head_size': 0.15,
+}
+
+plotter = ImplicitEquationPlotter(**plotter_options)
+
+plotter.show(config)
+
+
+# for config in configs:
     
-    print() 
+#     print(f'CONFIG = {config}')
     
-    plotter_options = {
-        'configs': configs,
-        'config_samples': config_samples, 
-        'X': X_test, 
-        'y': y_test, 
-        'model': model,
-        'normalized_range': normalized_range,
-        'point_size': 1.5,
-        'light_point_size': 1.5,
-        'light_point_alpha': 0.5,
-        # 'class_linewidth': 2,
-        # 'neuron_linewidth': 1.6,
-        'class_linewidth': 4,
-        'neuron_linewidth': 3,
-        'hidden_struct': hidden_struct,
-        'arrow_length': 0.4,
-        'arrow_head_size': 0.15,
-    }
+#     rule_texts = get_rules(model, X_test, y_test, 
+#                            normalized_range,
+#                            config_samples, config)
+
+#     print_bold(rule_texts['rule_antecedents'][0])
+#     print(rule_texts['rule_antecedents'][1])
+
+#     print_bold(rule_texts['rule_consequent'][0])
+#     print(rule_texts['rule_consequent'][1])
+
+#     print_bold(rule_texts['activation_region'][0])
+#     print(rule_texts['activation_region'][1])
     
-    plotter = ImplicitEquationPlotter(**plotter_options)
+#     print() 
     
-    plotter.show(config)
+#     plotter_options = {
+#         'configs': configs,
+#         'config_samples': config_samples, 
+#         'X': X_test, 
+#         'y': y_test, 
+#         'model': model,
+#         'normalized_range': normalized_range,
+#         'point_size': 1.5,
+#         'light_point_size': 1.5,
+#         'light_point_alpha': 0.5,
+#         # 'class_linewidth': 2,
+#         # 'neuron_linewidth': 1.6,
+#         'class_linewidth': 3.5,
+#         'neuron_linewidth': 3,
+#         'hidden_struct': hidden_struct,
+#         'arrow_length': 0.4,
+#         'arrow_head_size': 0.15,
+#     }
+    
+#     plotter = ImplicitEquationPlotter(**plotter_options)
+    
+#     plotter.show(config)
     

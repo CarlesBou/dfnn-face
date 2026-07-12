@@ -21,6 +21,8 @@ def get_rules(model, X_train, y_train,
                 config_samples,                     
                 config, decimals=4):
     
+    config = config.replace('-', '')
+    
     subscript_map = '0123456789'
 
     def eq_in_boundaries(eq, boundaries):

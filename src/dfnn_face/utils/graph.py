@@ -505,10 +505,16 @@ class ImplicitEquationPlotter():
 
     def show(self, config):
         
+        config = config.replace('-', '')
+        
         matplotlib.rcParams['figure.dpi'] = 100
         
-        self.index = list(self.configs).index(config)
-
+        try:
+            self.index = list(self.configs).index(config)
+        except:
+            print(f'Error: activation pattern [{self.get_config_structure(self.model, config)}] unknown!')
+            return 
+        
         self.create_gui()
         
         # self.subscript_map = '0123456789'
