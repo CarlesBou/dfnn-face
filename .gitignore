@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+damero_qt.py
+damero_web.py 
+tst.py 
+circle_web.py
+.vscode/

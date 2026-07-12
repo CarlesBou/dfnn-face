@@ -11,6 +11,7 @@ Deep feedforward neural networks (DFNNs) have achieved remarkable performance ac
 **G-FACE** is a natural extension of our local explainability method **FACE** (Feature Attribution Computed Exactly) that was original covered in our paper [*Achieving faithful explainability in feedforward neural networks through accurately computed feature attribution*](https://doi.org/10.1016/j.neunet.2025.108277) and in its associated [*Github repository*](https://github.com/CarlesBou/mlpxai).
 
 
+
 ## XX Repository description
 The repository contains the source files d  the local post-hoc explainer for Feed-forward Neural 
 Networks (FNNs) named "**Feature Attribution Computed Exactly (FACE)**" and the code of different examples showing the 
@@ -29,7 +30,7 @@ The [*/source/explainers/gface*](src/dfnn-face/explainers/fface) folder keeps th
 
 The [*/source/tools*](src/tools) folder contains Python toolbox aimed for activation region visualization in toy datasets.
 
-And, in the [*/src/dfnn-face/notebooks*](src/dfnn-face/notebooks) folder, you can find the same Python programs but in Jupyter Notebook format:
+And, in the [*/src/dfnn-face/notebooks*](src/dfnn-face/notebooks) folder, you can find different with a graphical visualization adapted for Jupyter Notebooks:
 - Checkerboard classification example ([notebook](https://github.com/CarlesBou/dfnn-face/blob/main/src/dfnn_face/notebooks/Damero.ipynb))
 - Circle classification example ([notebook](https://github.com/CarlesBou/dfnn-face/blob/main/src/dfnn_face/notebooks/Circle.ipynb))
 
