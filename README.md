@@ -30,9 +30,8 @@ The [*/source/explainers/gface*](src/dfnn-face/explainers/fface) folder keeps th
 The [*/source/tools*](src/tools) folder contains Python toolbox aimed for activation region visualization in toy datasets.
 
 And, in the [*/source/examples/notebooks*](src/examples/notebooks) folder, you can find the same Python programs but in Jupyter Notebook format:
-- Tabular classification example ([notebook](https://github.com/CarlesBou/mlpxai/blob/main/src/examples/notebooks/TabularClassification.ipynb))
-- Tabular regression example ([notebook](https://github.com/CarlesBou/mlpxai/blob/main/src/examples/notebooks/TabularRegression.ipynb))
-- Image classification example ([notebook](https://github.com/CarlesBou/mlpxai/blob/main/src/examples/notebooks/MNISTClassification.ipynb))
+- Checkerboard classification example ([notebook](https://github.com/CarlesBou/dfnn-face/blob/main/src/dfnn_face/notebooks/Damero.ipynb))
+- Circle classification example ([notebook](https://github.com/CarlesBou/dfnn-face/blob/main/src/dfnn_face/notebooks/Circle.ipynb))
 
 
 ## XX Instalation
