@@ -13,7 +13,7 @@ Deep feedforward neural networks (DFNNs) have achieved remarkable performance ac
 
 
 ## XX Repository description
-The repository contains the source files d  the local post-hoc explainer for Feed-forward Neural 
+The repository contains the source files **d  the local post-hoc explainer** for Feed-forward Neural 
 Networks (FNNs) named "**Feature Attribution Computed Exactly (FACE)**" and the code of different examples showing the 
 use of the explainer over regression and classification tabular problems and in classifation with images.
 
