@@ -64,8 +64,8 @@ The regression tool, <code>Regression_qt.py</code>, provides an explicit visual 
 To clone the project repository along with the source code, samples, and visualization tools, run the following command in your terminal:
 
 ```sh
-git clone https://github.com/CarlesBou/mlpxai.git
-cd mlpxai
+git clone https://github.com/CarlesBou/dfnn-face.git
+cd dfnn-face
 ```
 
 
