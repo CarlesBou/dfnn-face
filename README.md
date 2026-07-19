@@ -40,23 +40,23 @@ To demonstrate the mathematical properties and practical behavior of G-FACE, we 
 
 ## Interactive Visualization Tools
 
-For low-dimensional toy datasets, the repository includes a Python toolbox located in <code>src/tools</code> designed to map and display the exact polyhedral activation regions extracted by our methods.
+For low-dimensional toy datasets, the repository includes a Python toolbox located in <code>src/dfnn-face/visualizers</code> designed to map and display the exact polyhedral activation regions extracted by our methods.
 
 These interactive visualization tools allow you to inspect the exact local affine mappings and feature attributions visually and interactively, illuminating how the global decision space is partitioned into distinct local rule zones.
 
 
 ### Classification Space Visualizer
 
-The classification tool maps out how the network partitions the input space into unique activation regions, showcasing the exact decision boundaries along with the individual samples falling within each convex polyhedron.
+The classification tool, <code>Classification_qt.py</code>, maps out how the network partitions the input space into unique activation regions, showcasing the exact decision boundaries along with the individual samples falling within each convex polyhedron.
 
-![Alternate text Classification](src/dfnn_face/images/Visualization_example-Classitication.png)
+![Alternate text Classification](src/dfnn_face/visualizers/images/Visualization_example-Classitication.png)
 
 
 ### Regression Space Visualizer
 
-The regression tool provides an explicit visual look at the piecewise-affine response surface of the network, highlighting how the continuous linear segments connect across boundary regions to form the global prediction function.
+The regression tool, <code>Regression_qt.py</code>, provides an explicit visual look at the piecewise-affine response surface of the network, highlighting how the continuous linear segments connect across boundary regions to form the global prediction function.
 
-![Alternate text Regression](/src/dfnn_face/images/Visualization_example-Regression.png)
+![Alternate text Regression](/src/dfnn_face/visualizers/images/Visualization_example-Regression.png)
 
 
 ## Installation
