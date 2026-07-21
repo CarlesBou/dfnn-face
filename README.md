@@ -104,4 +104,4 @@ pip install -r requirements.txt
 
 
 ## Licenses
-This work is licensed under Creative Commons Zero v1.0 Universal (or any later version) license.
+This project is licensed under the Apache License 2.0 - See the LICENSE file for details.
