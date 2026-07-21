@@ -23,9 +23,9 @@ G-FACE is a global explainability framework designed for piecewise-linear deep f
 
 The core implementation files are organized as follows:
 
-* [*src/explainers/face*](src/dfnn-face/explainers/face): Contains the PyTorch source implementation of the foundational local explainer (FACE) and its global extension (G-FACE).
+* [*src/explainers/face*](src/dfnn_face/explainers/face): Contains the PyTorch source implementation of the foundational local explainer (FACE) and its global extension (G-FACE).
 
-* [*src/dfnn-face/notebooks*](src/dfnn-face/notebooks): Contains Jupyter notebooks examples about the utilization of the G-FACE method.
+* [*src/dfnn-face/notebooks*](src/dfnn_face/notebooks): Contains Jupyter notebooks examples about the utilization of the G-FACE method.
 
 * [*src/dfnn-face/visualizers*](src/dfnn_face/visualizers): Includes the visualization tools developed to understand the activation region for low-diemensional datasets.
 
