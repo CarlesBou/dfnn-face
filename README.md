@@ -1,38 +1,39 @@
-# Exact global explanations of piecewise-linear deep feedforward neural networks via rule extraction
+# Constructing exact rule-based symbolic representations of piecewise-linear deep feedforward neural networks
 
 This repository contains supplementary material for the paper:
 
-Carles-Bou, J. L., & Carmona, E. J. (2026). **Exact global explanations of piecewise-linear deep feedforward neural networks via rule extraction**. Under revision.
+Carles-Bou, J. L., & Carmona, E. J. (2026). **Constructing exact rule-based symbolic representations of piecewise-linear deep feedforward neural networks**. Under revision.
 
 
 # Paper Abstract
 
-Deep feedforward neural networks (DFNNs) have achieved remarkable performance across a wide range of applications, yet their opaque decision-making processes hinder adoption in high-stakes domains where transparency, accountability, and regulatory compliance are essential. Although global explainability in neural networks has long been pursued through rule extraction techniques and, more recently, through aggregation of local explanations, existing approaches typically rely on approximation, sampling, or heuristic procedures, limiting faithful characterization of overall model behavior. 
+Deep feedforward neural networks (DFNNs) have achieved remarkable success across numerous domains, but their internal decision-making process remains largely opaque, limiting transparency, trust, and regulatory compliance in high-stakes applications. Existing explainability approaches typically rely on approximate global rule extraction techniques or local feature attribution methods, neither of which provides an exact symbolic characterization of the network behavior. 
 
-This paper introduces G-FACE, an exact framework for global explanation in DFNNs with piecewise-linear (PWL) activation functions. Exploiting the continuous piecewise-affine structure of these networks, G-FACE transforms a trained model into an explicit rule-based knowledge representation composed of IF--THEN rules, each associated with an exact local affine mapping over a convex polyhedral activation region. A compact closed-form matrix formulation is derived to separate model parameters from input-dependent components, enabling exact and hyperparameter-free feature-level attribution. Unlike prior exact PWL approaches largely restricted to ReLU networks, the proposed framework extends to other PWL activations, including Leaky ReLU, hard sigmoid, and hard tanh. 
+This paper introduces R-FACE, a framework that constructs an exact symbolic representation of the input-output behavior of piecewise-linear (PWL) DFNNs over a  user-defined set of interest (SOI). Rather than approximating the network globally, R-FACE identifies the regions induced by the SOI. The resulting symbolic representation consists of a collection of exact IF--THEN rules, each encoding the polyhedral constraints (antecedent) together with the corresponding affine output model (consequent) of a single region. The proposed framework is built upon a compact closed-form matrix formulation, enabling the exact computation of both the affine model and the corresponding feature attributions for each region. 
 
-Beyond interpretability, the extracted rule-based representation supports advanced tasks such as local single- and multi-objective optimization and local adversarial search. Experimental use cases demonstrate the practical utility of G-FACE as a transparent and operational knowledge representation of trained neural networks.
+Furthermore, while existing exact analyzes have largely focused on ReLU networks, our framework naturally extends to other PWL activation functions, including Leaky ReLU, hard sigmoid, and hard tanh. The resulting representation provides a unified basis for multiple exact analyzes by enabling behavioral queries, including exact feature attribution, constrained optimization, and adversarial example generation. Representative use cases on both regression and classification problems illustrate the correctness, versatility, and practical applicability of the proposed framework.
+
 
 
 # Introduction
 
-G-FACE is a global explainability framework designed for piecewise-linear deep feedforward neural networks. It serves as the natural global extension of our local explainability method, FACE (Feature Attribution Computed Exactly), which computes exact local feature attributions by leverage of the network's underlying activation regions. FACE was original covered in our paper [*Achieving faithful explainability in feedforward neural networks through accurately computed feature attribution*](https://doi.org/10.1016/j.neunet.2025.108277) and in its associated [*Github repository*](https://github.com/CarlesBou/mlpxai). 
+R-FACE is a regional explainability framework designed for piecewise-linear deep feedforward neural networks. Rather than approximating the network globally, it constructs an exact symbolic representation of the network's input-output behavior over a user-defined set of interest (SOI). It serves as the natural regional extension of our local explainability method, FACE (Feature Attribution Computed Exactly), which computes exact local feature attributions by leveraging the network's underlying activation regions. By identifying the specific regions induced by the SOI, R-FACE extracts exact IF–THEN rules that encode both the polyhedral constraints and the corresponding affine output models. FACE was original covered in our paper [*Achieving faithful explainability in feedforward neural networks through accurately computed feature attribution*](https://doi.org/10.1016/j.neunet.2025.108277) and in its associated [*Github repository*](https://github.com/CarlesBou/mlpxai). 
 
 
 ## Repository Structure & Core Samples
 
 The core implementation files are organized as follows:
 
-* [*src/explainers/face*](src/dfnn_face/explainers/face): Contains the PyTorch source implementation of the foundational local explainer (FACE) and its global extension (G-FACE).
+* [*src/explainers/face*](src/dfnn_face/explainers/face): Contains the PyTorch source implementation of the foundational local explainer (FACE) and its regional extension (R-FACE).
 
-* [*src/dfnn-face/notebooks*](src/dfnn_face/notebooks): Contains Jupyter notebooks examples about the utilization of the G-FACE method.
+* [*src/dfnn-face/notebooks*](src/dfnn_face/notebooks): Contains Jupyter notebooks examples about the utilization of the R-FACE method.
 
 * [*src/dfnn-face/visualizers*](src/dfnn_face/visualizers): Includes the visualization tools developed to understand the activation region for low-diemensional datasets.
 
 
 ## Jupyter Notebook Samples
 
-To demonstrate the mathematical properties and practical behavior of G-FACE, we provide interactive examples covering classification problems on toy datasets.
+To demonstrate the mathematical properties and practical behavior of R-FACE, we provide interactive examples covering classification problems on toy datasets.
 
 - Checkerboard Classification — Detailed mapping of alternating complex decision boundaries ([View Notebook](https://github.com/CarlesBou/dfnn-face/blob/main/src/dfnn_face/notebooks/Damero.ipynb))
 - Circle Classification — A clear demonstration of how piecewise-linear regions approximate smooth, circular boundaries exactly ([View Notebook](https://github.com/CarlesBou/dfnn-face/blob/main/src/dfnn_face/notebooks/Circle.ipynb))
@@ -43,7 +44,7 @@ To demonstrate the mathematical properties and practical behavior of G-FACE, we 
 
 For low-dimensional toy datasets, the repository includes a Python toolbox located in <code>src/dfnn-face/visualizers</code> designed to map and display the exact polyhedral activation regions extracted by our methods.
 
-These interactive visualization tools allow you to inspect the exact local affine mappings and feature attributions visually and interactively, illuminating how the global decision space is partitioned into distinct local rule zones.
+These interactive visualization tools allow you to inspect the exact local affine mappings and feature attributions visually and interactively, illuminating how the decision space is partitioned into distinct local rule zones.
 
 
 ### Classification Space Visualizer
@@ -55,7 +56,7 @@ The classification tool, <code>Classification_qt.py</code>, maps out how the net
 
 ### Regression Space Visualizer
 
-The regression tool, <code>Regression_qt.py</code>, provides an explicit visual look at the piecewise-affine response surface of the network, highlighting how the continuous linear segments connect across boundary regions to form the global prediction function.
+The regression tool, <code>Regression_qt.py</code>, provides an explicit visual look at the piecewise-affine response surface of the network, highlighting how the continuous linear segments connect across boundary regions.
 
 ![Alternate text Regression](/src/dfnn_face/visualizers/images/Visualization_example-Regression.png)
 
