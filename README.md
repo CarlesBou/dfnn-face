@@ -19,7 +19,7 @@ Furthermore, while existing exact analyzes have largely focused on ReLU networks
 
 R-FACE is a regional explainability framework designed for piecewise-linear deep feedforward neural networks. Rather than approximating the network globally, it constructs an exact symbolic representation of the network's input-output behavior over a user-defined set of interest (SOI). It serves as the natural regional extension of our local explainability method, FACE (Feature Attribution Computed Exactly), which computes exact local feature attributions by leveraging the network's underlying activation regions. By identifying the specific regions induced by the SOI, R-FACE extracts exact IF–THEN rules that encode both the polyhedral constraints and the corresponding affine output models. 
 
-FACE was originaly covered in our paper [*Achieving faithful explainability in feedforward neural networks through accurately computed feature attribution*](https://doi.org/10.1016/j.neunet.2025.108277) and in its associated [*Github repository*](https://github.com/CarlesBou/mlpxai). 
+FACE was originally covered in our paper [*Achieving faithful explainability in feedforward neural networks through accurately computed feature attribution*](https://doi.org/10.1016/j.neunet.2025.108277) and in its associated [*Github repository*](https://github.com/CarlesBou/mlpxai). 
 
 
 ## Repository Structure & Core Samples
