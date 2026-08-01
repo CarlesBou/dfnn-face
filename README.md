@@ -1,15 +1,15 @@
-# Constructing exact rule-based symbolic representations of piecewise-linear deep feedforward neural networks
+# Beyond explainability: Constructing exact rule-based representations for the analytical exploration of piecewise-linear deep feedforward neural networks
 
 This repository contains supplementary material for the paper:
 
-Carles-Bou, J. L., & Carmona, E. J. (2026). **Constructing exact rule-based symbolic representations of piecewise-linear deep feedforward neural networks**. Under revision.
+Carles-Bou, J. L., & Carmona, E. J. (2026). **Beyond explainability: Constructing exact rule-based representations for the analytical exploration of piecewise-linear deep feedforward neural networks**. Under revision.
 
 
 # Paper Abstract
 
 Deep feedforward neural networks (DFNNs) have achieved remarkable success across numerous domains, but their internal decision-making process remains largely opaque, limiting transparency, trust, and regulatory compliance in high-stakes applications. Existing explainability approaches typically rely on approximate global rule extraction techniques or local feature attribution methods, neither of which provides an exact symbolic characterization of the network behavior. 
 
-This paper introduces R-FACE, a framework that constructs an exact symbolic representation of the input-output behavior of piecewise-linear (PWL) DFNNs over a  user-defined set of interest (SOI). Rather than approximating the network globally, R-FACE identifies the regions induced by the SOI. The resulting symbolic representation consists of a collection of exact IF--THEN rules, each encoding the polyhedral constraints (antecedent) together with the corresponding affine output model (consequent) of a single region. The proposed framework is built upon a compact closed-form matrix formulation, enabling the exact computation of both the affine model and the corresponding feature attributions for each region. 
+This paper introduces R-FACE (Rule-based FACE), a framework that constructs an exact symbolic representation of the input-output behavior of piecewise-linear (PWL) DFNNs over a  user-defined set of interest (SOI). Rather than approximating the network globally, R-FACE identifies the regions induced by the SOI. The resulting symbolic representation consists of a collection of exact IF–THEN rules, each encoding the polyhedral constraints (antecedent) together with the corresponding affine output model (consequent) of a single region. The proposed framework is built upon a compact closed-form matrix formulation, enabling the exact computation of both the affine model and the corresponding feature attributions for each region. 
 
 Furthermore, while existing exact analyzes have largely focused on ReLU networks, our framework naturally extends to other PWL activation functions, including Leaky ReLU, hard sigmoid, and hard tanh. The resulting representation provides a unified basis for multiple exact analyzes by enabling behavioral queries, including exact feature attribution, constrained optimization, and adversarial example generation. Representative use cases on both regression and classification problems illustrate the correctness, versatility, and practical applicability of the proposed framework.
 
@@ -19,7 +19,7 @@ Furthermore, while existing exact analyzes have largely focused on ReLU networks
 
 R-FACE is a regional explainability framework designed for piecewise-linear deep feedforward neural networks. Rather than approximating the network globally, it constructs an exact symbolic representation of the network's input-output behavior over a user-defined set of interest (SOI). It serves as the natural regional extension of our local explainability method, FACE (Feature Attribution Computed Exactly), which computes exact local feature attributions by leveraging the network's underlying activation regions. By identifying the specific regions induced by the SOI, R-FACE extracts exact IF–THEN rules that encode both the polyhedral constraints and the corresponding affine output models. 
 
-FACE was original covered in our paper [*Achieving faithful explainability in feedforward neural networks through accurately computed feature attribution*](https://doi.org/10.1016/j.neunet.2025.108277) and in its associated [*Github repository*](https://github.com/CarlesBou/mlpxai). 
+FACE was originally covered in our paper [*Achieving faithful explainability in feedforward neural networks through accurately computed feature attribution*](https://doi.org/10.1016/j.neunet.2025.108277) and in its associated [*Github repository*](https://github.com/CarlesBou/mlpxai). 
 
 
 ## Repository Structure & Core Samples
